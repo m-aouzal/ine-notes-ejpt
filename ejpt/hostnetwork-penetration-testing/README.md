@@ -9,9 +9,8 @@
 * [Post-Exploitation](5-post-exploit.md)
 * [Social Engineering](6-social-engineer.md)
 
-> ### ❗ Disclaimer
+> #### ❗ Disclaimer
 >
 > * **Never use tools and techniques on real IP addresses, hosts or networks without proper authorization!**
 
-------
-
+***

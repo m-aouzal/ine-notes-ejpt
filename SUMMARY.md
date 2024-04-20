@@ -82,19 +82,3 @@
     * [PTSv2 Practice Labs](ejpt/exam-preparation-labs/pts2-labs.md)
   * [🌐 eJPT References](ejpt/ejpt-references.md)
   * [📜 eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
-* [ICCA](icca/README.md)
-  * [📒1. Cloud Foundations](icca/cloud-foundations/README.md)
-  * [📒2. Cloud Management Concepts](icca/cloud-management/README.md)
-  * [📒3. Cloud Identity, Security, and Compliance](icca/cloud-sec/README.md)
-  * [🌐 Icca References](icca/icca-references.md)
-  
-* [eMAPT](emapt/README.md)
-  * [📒Android](emapt/android/README.md)
-  * [📒iOS](emapt/ios/README.md)
-  * [🌐 eMAPT References](emapt/emapt-references.md)
-
-
-***
-
-- [🏠 syselement's Blog Home](https://blog.syselement.com/home)
-

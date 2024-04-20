@@ -8,7 +8,7 @@
 * [Vulnerability Assessment](4-va.md)
 * [Auditing Fundamentals](5-audit.md)
 
-> ### ❗ Disclaimer
+> #### ❗ Disclaimer
 >
 > * **Never use tools and techniques on real IP addresses, hosts or networks without proper authorization!**
 

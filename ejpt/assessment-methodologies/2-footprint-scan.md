@@ -1,23 +1,23 @@
 # Footprinting & Scanning
 
-> #### ⚡ Prerequisites
+> **⚡ Prerequisites**
 >
 > * Basic familiarity with Linux
 > * Basic networks concepts
 >
-> #### 📕 Learning Objectives
+> **📕 Learning Objectives**
 >
 > * Purpose of network mapping and port scanning in relation to an engagement
 > * Perform network host discovery and port scanning
 > * Think and act like an adversary
 >
-> #### 🔬 Training list - PentesterAcademy/INE Labs
+> **🔬 Training list - PentesterAcademy/INE Labs**
 >
 > `subscription required`
 >
-> - [Host Discovery Win Recon](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery)
+> * [Host Discovery Win Recon](https://attackdefense.com/listing?labtype=windows-recon\&subtype=windows-recon-host-discovery)
 
-> ❗***Never run these techniques on un-authorized addresses❗A proper authorization is required to conduct the footprinting and scanning activity.***
+> ❗_**Never run these techniques on un-authorized addresses❗A proper authorization is required to conduct the footprinting and scanning activity.**_
 
 ## Mapping a Network
 

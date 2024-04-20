@@ -4,9 +4,8 @@
 
 ## INE Training - Notes
 
-- [x] [eJPT - PTSv2](ejpt/README.md) by Josh Mason & [Alexis Ahmed](https://alexisahmed.com/)
-- [x] [ICCA](icca/README.md) by [Tracy Wallace](https://twitter.com/TracyWallaceTec)
-- [x] [eMAPT](emapt/README.md) by Anthony Trummer
+* [x] [eJPT - PTSv2](ejpt/) by Josh Mason & [Alexis Ahmed](https://alexisahmed.com/)
+* [x] [ICCA](broken-reference) by [Tracy Wallace](https://twitter.com/TracyWallaceTec)
+* [x] [eMAPT](broken-reference) by Anthony Trummer
 
----
-
+***

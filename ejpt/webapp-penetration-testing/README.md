@@ -4,9 +4,8 @@
 
 * [Intro to Web App Pentesting](1-webapp-http.md)
 
-> ### ❗ Disclaimer
+> #### ❗ Disclaimer
 >
 > * **Never use tools and techniques on real IP addresses, hosts or networks without proper authorization!**
 
-------
-
+***

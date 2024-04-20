@@ -1,11 +1,11 @@
 # Information Gathering
 
-> #### ⚡ Prerequisites
+> **⚡ Prerequisites**
 >
 > * Basic familiarity with Linux
 > * Basic familiarity with web technologies
 >
-> #### 📕 Learning Objectives
+> **📕 Learning Objectives**
 >
 > * Differences between **active** and **passive** information gathering
 > * Perform passive and active information gathering with various tools and resources
@@ -36,7 +36,7 @@
 
 🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-> ❗***An authorization is required to conduct active information gathering.***
+> ❗_**An authorization is required to conduct active information gathering.**_
 
 * The target will be aware of the attacker's engagement.
 * `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
@@ -334,7 +334,7 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 * use it to search for Dorks by Category to find potentially unsecured files
 
-![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183211722.png>)
+![Google Hacking Database - exploit-db.com](.gitbook/assets/image-20230117183211722.png)
 
 [**Wayback Machine**](https://archive.org/web/)
 
@@ -659,7 +659,7 @@ fierce --domain zonetransfer.me
 
 > [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
 >
-> - 📌 [NMap CheatSheet](https://www.stationx.net/nmap-cheat-sheet/)
+> * 📌 [NMap CheatSheet](https://www.stationx.net/nmap-cheat-sheet/)
 
 ![man nmap](.gitbook/assets/image-20230120153307558.png)
 

