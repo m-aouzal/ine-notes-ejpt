@@ -1,10 +1,8 @@
 # Table of contents
 
-* [INE Training Notes](README.md)
-
 ## Courses
 
-* [eJPT - PTSv2](ejpt/README.md)
+* [eJPT](README.md)
   * [📒Penetration Testing Prerequisites](ejpt/penetration-testing-prerequisites/README.md)
     * [Introduction](ejpt/penetration-testing-prerequisites/introduction.md)
     * [Networking](ejpt/penetration-testing-prerequisites/networking.md)
