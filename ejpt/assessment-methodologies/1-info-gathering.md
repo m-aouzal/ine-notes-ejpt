@@ -7,7 +7,7 @@
 >
 > **📕 Learning Objectives**
 >
-> * Differences between **active** and **passive** information gathering
+> * &#x20;between **active** and **passive** information gathering
 > * Perform passive and active information gathering with various tools and resources
 
 🗒️ **Information gathering** (_**Reconnaissance**_) is the initial stage of any penetration test and one of the most important phase.
@@ -825,6 +825,15 @@ sudo nmap -sn 192.168.31.0/24
 ```
 
 > [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
+
+#### Host discovery Professor Recommendation
+
+```
+nmap -sn -v -T4 <target ip>
+#if some hosts found, more tailored approach below much better
+nmap -sn -PS21,22,25,80,445,3389,8080 -T4 <target>
+#In the event of windows add for example -PU137,138
+```
 
 * _it utilizes ARP requests_
 
