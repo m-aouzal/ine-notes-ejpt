@@ -1,8 +1,10 @@
 # 🔬HTTP Enum
 
-**`HTTP`** (**H**yper **T**ext **T**ransfer **P**rotocol) - a *client-server* application layer protocol, used to load web pages using hypertext links. 
+**`HTTP`** (**H**yper **T**ext **T**ransfer **P**rotocol) - a _client-server_ application layer protocol, used to load web pages using hypertext links.
 
 A client machine makes a `request` to a server (usually from a website), which then sends a `response` message back to the client.
+
+IIS is a web server software package that uses HTTP as its main protocol for serving web pages and other content to users across the internet or intranet.
 
 Default `HTTP` port is **`80`** and `HTTPS` port is **`443`**.
 
@@ -12,10 +14,10 @@ sudo nmap -p80 -sV -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [Windows Recon: IIS](https://attackdefense.com/challengedetails?cid=2311)
+> 🔬 [Windows Recon: IIS](https://attackdefense.com/challengedetails?cid=2311)
 >
->  - Target IP: `10.4.16.17`
->  - Enumeration of an `IIS` HTTP server, without the usage of a browser
+> * Target IP: `10.4.16.17`
+> * Enumeration of an `IIS` HTTP server, without the usage of a browser
 
 ```bash
 nmap 10.4.16.17
@@ -68,10 +70,10 @@ http://10.4.16.17/Default.aspx [302 Found] ASP_NET[4.0.30319], Cookies[ASP.NET_S
 
 > 📌
 >
-> - IIS Server version is `10.0`
-> - ASP.NET version is `4.0.30319`
-> - XSS Protection is `off`(`0`)
-> - Default page of the target web app is `/Default.aspx`
+> * IIS Server version is `10.0`
+> * ASP.NET version is `4.0.30319`
+> * XSS Protection is `off`(`0`)
+> * Default page of the target web app is `/Default.aspx`
 
 ### [httpie](https://httpie.io/)
 
@@ -102,9 +104,9 @@ X-XSS-Protection: 0
 
 ### [dirb](https://www.kali.org/tools/dirb/)
 
-> [**`dirb`**](https://dirb.sourceforge.net/about.html) - a Web content scanner. It *launches a `dictionary based attack` against a web server, looking for existing Web Objects and analyzing the response*. It comes with a set of preconfigured *attack wordlists*.
+> [**`dirb`**](https://dirb.sourceforge.net/about.html) - a Web content scanner. It _launches a `dictionary based attack` against a web server, looking for existing Web Objects and analyzing the response_. It comes with a set of preconfigured _attack wordlists_.
 
-- Try to browse to the found directories to find out if access is granted
+* Try to browse to the found directories to find out if access is granted
 
 ```bash
 dirb http://10.4.16.17
@@ -164,7 +166,7 @@ GENERATED WORDS: 4612
 
 ### [browsh](https://github.com/browsh-org/browsh)
 
-> **`browsh`** - *A fully interactive, real-time, and modern text-based browser rendered to TTYs and browsers*. It's used when only command line is available or now browser is installed.
+> **`browsh`** - _A fully interactive, real-time, and modern text-based browser rendered to TTYs and browsers_. It's used when only command line is available or now browser is installed.
 
 ```bash
 browsh --startup-url http://10.4.16.17/Default.aspx
@@ -178,12 +180,12 @@ browsh --startup-url http://10.4.16.17/Default.aspx
 
 ## Lab 2
 
->  🔬 [Windows Recon: IIS: Nmap Scripts](https://attackdefense.com/challengedetails?cid=2312)
+> 🔬 [Windows Recon: IIS: Nmap Scripts](https://attackdefense.com/challengedetails?cid=2312)
 >
->  - Target IP: `10.4.21.207`
->  - Enumeration of an `IIS` HTTP server using `nmap` scripts
+> * Target IP: `10.4.21.207`
+> * Enumeration of an `IIS` HTTP server using `nmap` scripts
 
-- Use [nmap http-enum script](https://nmap.org/nsedoc/scripts/http-enum.html) to discover and enumerate web server directories
+* Use [nmap http-enum script](https://nmap.org/nsedoc/scripts/http-enum.html) to discover and enumerate web server directories
 
 ```bash
 nmap 10.4.21.207
@@ -214,7 +216,7 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 > 📌 Potentially interesting folders are `content`, `downloads`, `webdav`.
 
-- Use [nmap http-headers script](https://nmap.org/nsedoc/scripts/http-headers.html) to display the *HTTP headers*
+* Use [nmap http-headers script](https://nmap.org/nsedoc/scripts/http-headers.html) to display the _HTTP headers_
 
 ```bash
 nmap --script=http-headers -sV -p80 10.4.21.207
@@ -245,12 +247,12 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 > 📌
 >
-> - IIS Server version is `10.0`
-> - ASP.NET version is `4.0.30319`
-> - XSS Protection is `off`(`0`)
-> - Default page of the target web app is `/Default.aspx`
+> * IIS Server version is `10.0`
+> * ASP.NET version is `4.0.30319`
+> * XSS Protection is `off`(`0`)
+> * Default page of the target web app is `/Default.aspx`
 
-- Use [nmap http-methods script](https://nmap.org/nsedoc/scripts/http-methods.html) to find supported *options/methods*
+* Use [nmap http-methods script](https://nmap.org/nsedoc/scripts/http-methods.html) to find supported _options/methods_
 
 ```bash
 nmap --script=http-methods --script-args http-methods.url-path=/webdav/ -p80 10.4.21.207
@@ -269,7 +271,7 @@ PORT   STATE SERVICE
 
 > 📌 Enumerated supported HTTP methods are `OPTIONS`, `TRACE`, `GET`, `HEAD`, `POST`, `COPY`, `PROPFIND`, `DELETE`, `MOVE`, `PROPPATCH`, `MKCOL`, `LOCK`, `UNLOCK`, `PUT`
 
-- Use [nmap http-webdav-scan script](https://nmap.org/nsedoc/scripts/http-webdav-scan.html) to enumerate WebDAV installation
+* Use [nmap http-webdav-scan script](https://nmap.org/nsedoc/scripts/http-webdav-scan.html) to enumerate WebDAV installation
 
 ```bash
 nmap --script=http-webdav-scan --script-args http-methods.url-path=/webdav/ -p80 10.4.21.207
@@ -287,10 +289,10 @@ nmap --script=http-webdav-scan --script-args http-methods.url-path=/webdav/ -p80
 
 ## Lab 3
 
->  🔬 [Apache Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=539)
+> 🔬 [Apache Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=539)
 >
->  - Target IP: `192.199.232.3`
->  - Enumeration of an `Apache` HTTP server
+> * Target IP: `192.199.232.3`
+> * Enumeration of an `Apache` HTTP server
 
 ```bash
 ip -br -c a
@@ -322,7 +324,7 @@ browsh --startup-url http://192.199.232.3
 
 > 📌 `Apache2 Ubuntu Default page` is hosted on the running web server.
 
-- Perform directories bruteforce, using the [`brute_dirs`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/brute_dirs/) metasploit module. Use [robots_txt](https://www.rapid7.com/db/modules/auxiliary/scanner/http/robots_txt/) module to detect `robots.txt` files and analize its content too.
+* Perform directories bruteforce, using the [`brute_dirs`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/brute\_dirs/) metasploit module. Use [robots\_txt](https://www.rapid7.com/db/modules/auxiliary/scanner/http/robots\_txt/) module to detect `robots.txt` files and analize its content too.
 
 ```bash
 msfconsole
@@ -342,7 +344,7 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-![Metasploit - brute_dirs](.gitbook/assets/image-20230216185459709.png)
+![Metasploit - brute\_dirs](.gitbook/assets/image-20230216185459709.png)
 
 > 📌 `dir`, `poc` directories found.
 
@@ -360,7 +362,7 @@ exploit
 
 ### [curl](https://curl.se/)
 
-> **`curl`** - *command line tool and librare for transferring data with URLs*
+> **`curl`** - _command line tool and librare for transferring data with URLs_
 
 ```bash
 curl http://192.199.232.3/dir
@@ -384,7 +386,7 @@ WWW-Authenticate: Basic realm="private"
 Content-Type: text/html; charset=iso-8859-1
 ```
 
-> 📌 *dir* directory is using `Basic` auth protection - [WWW-Authenticate header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate)
+> 📌 _dir_ directory is using `Basic` auth protection - [WWW-Authenticate header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate)
 
 ```bash
 curl http://192.199.232.3/poc
@@ -396,7 +398,7 @@ curl http://192.199.232.3/poc
 
 ![curl poc](.gitbook/assets/image-20230216190722430.png)
 
-- Use [`http_header`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http_header/) metasploit module to find the *poc* directory protection
+* Use [`http_header`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http\_header/) metasploit module to find the _poc_ directory protection
 
 ```bash
 msfconsole
@@ -419,9 +421,9 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 *poc* directory is using `Difest` auth protection
+> 📌 _poc_ directory is using `Difest` auth protection
 
-- Use [`http_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http_login/) metasploit module to attempt HTTP user authentication
+* Use [`http_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http\_login/) metasploit module to attempt HTTP user authentication
 
 ```bash
 echo -e "alice\nbob\n" > /tmp/users
@@ -447,23 +449,21 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 *dir* directory credentials are `bob:qwerty`
+> 📌 _dir_ directory credentials are `bob:qwerty`
 
 ```bash
 curl -u bob:qwerty http://192.199.232.3/dir/
 ```
 
 <details>
-<summary>Reveal Flag - dir directory flag is: 🚩</summary>
 
+<summary>Reveal Flag - dir directory flag is: 🚩</summary>
 
 `72af1d9471cfea41ac0ff3600b3702f6`
 
-![curl -u](.gitbook/assets/image-20230216192605784.png)
+<img src=".gitbook/assets/image-20230216192605784.png" alt="curl -u" data-size="original">
 
 </details>
-
-
 
 ```bash
 msfconsole
@@ -486,33 +486,28 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 *poc* directory credentials are `alice:password1`
+> 📌 _poc_ directory credentials are `alice:password1`
 
 ```bash
 curl --digest -u alice:password1 http://192.199.232.3/poc/
 ```
 
-
-
-
 <details>
-<summary>Reveal Flag - poc directory flag is: 🚩</summary>
 
+<summary>Reveal Flag - poc directory flag is: 🚩</summary>
 
 `0b6f98199bae51afc2f60578f923f8af`
 
-![curl --digest -u](.gitbook/assets/image-20230216192643068.png)
+<img src=".gitbook/assets/image-20230216192643068.png" alt="curl --digest -u" data-size="original">
 
 </details>
 
-
-
 ## Lab 4
 
->  🔬 [Apache Recon: Basics](https://www.attackdefense.com/challengedetails?cid=538)
+> 🔬 [Apache Recon: Basics](https://www.attackdefense.com/challengedetails?cid=538)
 >
->  - Target IP: `192.157.222.3`
->  - Enumeration of an `Apache` HTTP server
+> * Target IP: `192.157.222.3`
+> * Enumeration of an `Apache` HTTP server
 
 ```bash
 ip -br -c a
@@ -541,7 +536,7 @@ wget http://192.157.222.3
 
 ### [lynx](https://lynx.invisible-island.net/)
 
-> **`lynx`** - is a *text web browser*.
+> **`lynx`** - is a _text web browser_.
 
 ```bash
 lynx http://192.157.222.3
@@ -557,7 +552,7 @@ dirb http://192.157.222.3 /usr/share/metasploit-framework/data/wordlists/directo
 + http://192.157.222.3//dir (CODE:301|SIZE:312)  
 ```
 
-- **Metasploit** modules
+* **Metasploit** modules
 
 ```bash
 msfconsole -q
@@ -582,17 +577,13 @@ curl http://192.157.222.3/robots.txt
 ```
 
 <details>
+
 <summary>Reveal Flag - poc directory flag is: 🚩</summary>
-
-
 
 `BadBot`
 
-![](.gitbook/assets/image-20230417190948253.png)
+<img src=".gitbook/assets/image-20230417190948253.png" alt="" data-size="original">
 
 </details>
 
-
-
-------
-
+***
