@@ -166,7 +166,7 @@ GENERATED WORDS: 4612
 
 ### [browsh](https://github.com/browsh-org/browsh)
 
-> **`browsh`** - _A fully interactive, real-time, and modern text-based browser rendered to TTYs and browsers_. It's used when only command line is available or now browser is installed.
+> **`browsh`** - _A fully interactive, real-time, and modern text-based browser rendered to TTYs and browsers_. It's used when only command line is available or no browser is installed.
 
 ```bash
 browsh --startup-url http://10.4.16.17/Default.aspx
@@ -421,7 +421,7 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 _poc_ directory is using `Difest` auth protection
+> 📌 _poc_ directory is using `Digest` auth protection
 
 * Use [`http_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http\_login/) metasploit module to attempt HTTP user authentication
 
